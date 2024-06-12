@@ -2,6 +2,22 @@
 Train.py is ~200 lines of python code that define and train GPT-2 from scratch using mlx and numpy as the only dependencies. This readme will detail writing train.py from scratch. The model is trained on ~1 million characters of Shakespeare contained in input.txt, and it can be trained in around 10 minutes on a macbook to produce coherent Shakespeare-like text.
 
 ## Table of Contents
+  - [Preparing the data](#preparing-thedata)
+  - [Creating the vocabulary](#creating-the-vocabulary)
+  - [Coding GPT-2](#coding-gpt-2)
+    - [Input Embeddings](#input-embeddings)
+  - [Positional Embeddings](#positional-embeddings)
+  - [Self-Attention](#self-attention)
+    - [Keys, Queries, and Values](#keys-queries-andvalues)
+  - [Multi-Head Attention](#multi-head-attention)
+  - [MLP](#mlp)
+  - [Block](#block)
+  - [Layernorms and Skip Connections](#layernorms-and-skip-connections)
+  - [Forward Pass](#forward-pass)
+  - [Sampling](#sampling)
+  - [Initialization](#initialization)
+  - [Training Loop](#training-loop)
+  - [References](#references)
 
 ## Preparing the data
 Install mlx and run the following imports.
@@ -810,7 +826,7 @@ JULIET:
 Not, brother recourable this doth our accuse
 Into fight!
 ```
-Not bad for just 10 minutes of training with a tiny model that is predicted character by character! It clearly has the form of Shakespeare, although it is nonsense. And with that, you've just implemented GPT-2 from scratch. The only difference between our model and the real GPT-2 now is scale! Now I encourage you to experiment - try out different settings, maybe tinker with the architecture, and see how low of a loss you can achieve.
+Not bad for just 10 minutes of training with a tiny model that is predicting characters! It clearly has the form of Shakespeare, although it is nonsense. And with that, you've just implemented GPT-2 from scratch. The only difference between our model and the real GPT-2 now is scale! Now I encourage you to experiment - try out different settings, maybe tinker with the architecture, and see how low of a loss you can achieve.
 ## References
 [1] A. Radford, J. Wu, R. Child, D. Luan, D. Amodei, I. Sutskever, Language Models are Unsupervised Multitask Learners (2019), OpenAI\
 [2] Automatic Differentiation - mlx docs
